@@ -13,6 +13,8 @@ public class Item {
     private Date createDate;
     private Date updateDate;
 
+
+
     public long getId() {
         return id;
     }
