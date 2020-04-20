@@ -11,7 +11,9 @@ import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.downloader.Downloader;
 import us.codecraft.webmagic.selector.PlainText;
 
+import java.sql.Driver;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class JdDownloader implements Downloader {
@@ -27,7 +29,19 @@ public class JdDownloader implements Downloader {
 //        设置浏览器窗口打开大小  （非必须）
         chromeOptions.addArguments("--window-size=1024,768");
         chromeDriver = new ChromeDriver(chromeOptions);
+//        chromeDriver.manage().timeouts().setScriptTimeout(3, TimeUnit.SECONDS);
     }
+
+
+//    We were seeing something similar with Chrome and the issue came down to the way we were maximizing the browser before
+//    running the tests.
+//    We switched from this:
+//            Driver.Manage().Window.Maximize();
+//
+//    To this (for Chrome only):
+//            if (typeof(TWebDriver) == typeof(ChromeDriver))
+//            { var options = new ChromeOptions(); options.AddArgument("start-maximized");
+//            driver = new ChromeDriver(driverPath, options);}
 
     @Override
     public Page download(Request request, Task task) {
