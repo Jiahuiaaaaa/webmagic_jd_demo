@@ -14,5 +14,6 @@ public class ItemController {
     public  String doMain(){
         jdSpider.start();
         return  "success!";
+
     }
 }
