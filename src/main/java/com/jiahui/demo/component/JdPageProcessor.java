@@ -118,7 +118,7 @@ public class JdPageProcessor implements PageProcessor {
         HttpGet get = new HttpGet(src);
         get.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0");
         String fileName = UUID.randomUUID() + src.substring(src.lastIndexOf("."));
-        String path = "D:\\temp\\img\\";
+        String path = "D:\\webmagic\\temp\\img\\";
         String finalPath = path + fileName;
         try {
             CloseableHttpResponse response = client.execute(get);
