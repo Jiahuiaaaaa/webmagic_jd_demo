@@ -3,6 +3,7 @@ package com.jiahui.demo.test;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.pipeline.JsonFilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 public class GithubRepoPageProcessor implements PageProcessor {
@@ -36,6 +37,8 @@ public class GithubRepoPageProcessor implements PageProcessor {
         Spider.create(new GithubRepoPageProcessor())
                 //从"https://github.com/code4craft"开始抓
                 .addUrl("https://github.com/code4craft")
+                //JsonFilePipeline 讲爬到的数据以json格式保存 保存的路径为  "D:\\webmagic\\"
+                .addPipeline(new JsonFilePipeline("D:\\webmagic\\"))
                 //开启5个线程抓取
                 .thread(5)
                 //启动爬虫
