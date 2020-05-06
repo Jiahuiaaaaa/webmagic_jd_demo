@@ -13,7 +13,9 @@ import us.codecraft.webmagic.processor.PageProcessor;
  */
 public class WebMagicTest  implements PageProcessor {
 
-    // 部分一：抓取网站的相关配置，包括编码、抓取间隔、重试次数等
+    /**
+     *     部分一：抓取网站的相关配置，包括编码、抓取间隔、重试次数等
+     */
     private Site site = Site.me()
             .setRetryTimes(3)
             .setSleepTime(100)
@@ -29,11 +31,13 @@ public class WebMagicTest  implements PageProcessor {
             .addHeader("Connection", "keep-alive");
 
     //接口方法的实现，返回我们配置的site
+    @Override
     public Site getSite() {
         return site;
     }
 
     //PageProcessor最重要的部分，需要我们根据具体的页面进行定制
+    @Override
     public void process(Page page) {
 
         //直接从浏览器获取的xpath信息

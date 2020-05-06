@@ -11,9 +11,9 @@ import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.downloader.Downloader;
 import us.codecraft.webmagic.selector.PlainText;
 
-import java.sql.Driver;
+
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
 
 @Component
 public class JdDownloader implements Downloader {

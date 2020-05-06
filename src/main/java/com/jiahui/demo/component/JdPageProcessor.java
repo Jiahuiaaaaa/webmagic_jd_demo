@@ -1,7 +1,6 @@
 package com.jiahui.demo.component;
 
 
-
 import com.jiahui.demo.pojo.Item;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -54,10 +53,7 @@ public class JdPageProcessor implements PageProcessor {
             Map<String, Object> map = new HashMap<>();
             map.put("currentPageUrl", page.getUrl().get());
             request.setExtras(map);
-
             page.addTargetRequest(request);
-
-
         } else {
             //5.如果是详情页面就封装成实体类传入pipeline
 
@@ -66,7 +62,6 @@ public class JdPageProcessor implements PageProcessor {
             try {
                 sku = Long.parseLong(html.css("div.preview-info div.left-btns a.follow.J-follow", "data-id").get());
             } catch (NumberFormatException e) {
-                //System.out.println("---------------"+page.getUrl()+"-------------------");
                 e.printStackTrace();
             }
             //商品标题

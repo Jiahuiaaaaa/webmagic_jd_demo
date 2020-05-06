@@ -4,7 +4,7 @@ import com.jiahui.demo.pojo.Item;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
-import java.util.List;
+
 
 public interface ItemDao {
     @Insert("INSERT INTO jd_item (`spu`,`sku`,`title`,`price`,`pic`,`url`,`createDate`,`updateDate`) \n" +
