@@ -13,13 +13,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.UUID;
-
-@Component  //创建实例
+/**
+ * 创建实例
+ * @author ELIAN-FM-JSJ297
+ */
+@Component
 public class HttpUtils {
-    //使用连接池
+    /**
+     * 使用连接池
+     */
     private PoolingHttpClientConnectionManager cm;
-    //需要声明构造方法，因为参数不需要从外面传进来，所以不需要参数
-    //为什么需要构造方法，是因为声明的这个连接池需要赋于属性的值
+
+    /**
+     * 需要声明构造方法，因为参数不需要从外面传进来，所以不需要参数
+     * 为什么需要构造方法，是因为声明的这个连接池需要赋于属性的值
+     */
     public HttpUtils() {
         this.cm = new PoolingHttpClientConnectionManager();
         //设置最大连接数
@@ -74,12 +82,19 @@ public class HttpUtils {
 
         return "";
     }
-    //设置请求的信息
+
+    /**
+     * 设置请求的信息
+     * @return
+     */
     private RequestConfig getConfig() {
         RequestConfig config=RequestConfig.custom()
-                .setConnectTimeout(1000)//创建连接的最长时间
-                .setConnectionRequestTimeout(500)//获取连接的最长时间
-                .setSocketTimeout(500)//数据传输的最长时间
+                //创建连接的最长时间
+                .setConnectTimeout(1000)
+                //获取连接的最长时间
+                .setConnectionRequestTimeout(500)
+                //数据传输的最长时间
+                .setSocketTimeout(500)
                 .build();
         return config;
     }

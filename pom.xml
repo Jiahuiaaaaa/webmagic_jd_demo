@@ -19,6 +19,13 @@
     </properties>
 
     <dependencies>
+        <!--lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+            <scope>provided</scope>
+        </dependency>
         <!--WebMagic扩展-->
         <dependency>
             <groupId>us.codecraft</groupId>

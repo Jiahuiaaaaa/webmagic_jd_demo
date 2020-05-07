@@ -23,6 +23,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * @author ELIAN-FM-JSJ297
+ */
 @Component
 public class JdPageProcessor implements PageProcessor {
     @Override
@@ -50,7 +53,7 @@ public class JdPageProcessor implements PageProcessor {
             //3.传给队列一个下一页地址：http://www.nextPage.com并添加附件，内容为这一页地址，
             //     方便downloader对象点击下一页按钮，为了以放队列删除相同地址，添加一个 ?url=当前页地址
             Request request = new Request("http://nextpage?url=" + page.getUrl());
-            Map<String, Object> map = new HashMap<>();
+            Map<String, Object> map = new HashMap<>(16);
             map.put("currentPageUrl", page.getUrl().get());
             request.setExtras(map);
             page.addTargetRequest(request);

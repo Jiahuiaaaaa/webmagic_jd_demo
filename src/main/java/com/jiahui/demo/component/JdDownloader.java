@@ -24,9 +24,9 @@ public class JdDownloader implements Downloader {
         //配置参数
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
-//        设置为 headless 模式 （必须）
-//          chromeOptions.addArguments("--headless");
-//        设置浏览器窗口打开大小  （非必须）
+        //        设置为 headless 模式 （必须）
+        //          chromeOptions.addArguments("--headless");
+        // 设置浏览器窗口打开大小  （非必须）
         chromeOptions.addArguments("--window-size=1024,768");
         chromeDriver = new ChromeDriver(chromeOptions);
 //        chromeDriver.manage().timeouts().setScriptTimeout(3, TimeUnit.SECONDS);
@@ -86,11 +86,10 @@ public class JdDownloader implements Downloader {
                     e.printStackTrace();
                 }
                 //9.传输渲染好的页面传给pageProcessor
-                return createPage(chromeDriver.getPageSource(),chromeDriver.getCurrentUrl());
             }else {
                 //7.若是详情页面则直接传给pageProcessor
-                return createPage(chromeDriver.getPageSource(),chromeDriver.getCurrentUrl());
             }
+            return createPage(chromeDriver.getPageSource(),chromeDriver.getCurrentUrl());
         }
     }
 
